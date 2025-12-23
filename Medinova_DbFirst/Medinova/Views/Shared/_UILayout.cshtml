@@ -1,0 +1,25 @@
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    @Html.Action("PartialHead", "Default")
+</head>
+
+<body>
+
+    @Html.Action("PartialNavbar", "Default")
+
+    @RenderBody()
+
+    <div id="contact">
+        @Html.Action("PartialFooter", "Default")
+    </div>
+
+    @Html.Action("PartialScripts", "Default")
+
+</body>
+</html>
