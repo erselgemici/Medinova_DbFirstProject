@@ -1,0 +1,162 @@
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Medinova Admin Paneli</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-color: #13C5DD; /* Medinova Turkuaz */
+            --dark-color: #1D2A4D; /* Medinova Lacivert */
+            --sidebar-width: 260px;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #f5f7ff;
+            overflow-x: hidden;
+        }
+
+        /* SIDEBAR TASARIMI */
+        .sidebar {
+            width: var(--sidebar-width);
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background: var(--dark-color);
+            color: #fff;
+            transition: all 0.3s;
+            z-index: 1000;
+        }
+
+        .sidebar-header {
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .sidebar-brand {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .sidebar-menu {
+            padding: 20px 0;
+            list-style: none;
+            margin: 0;
+        }
+
+            .sidebar-menu li a {
+                display: flex;
+                align-items: center;
+                padding: 15px 25px;
+                color: rgba(255, 255, 255, 0.8);
+                text-decoration: none;
+                transition: 0.3s;
+                border-left: 4px solid transparent;
+            }
+
+                .sidebar-menu li a:hover {
+                    background: rgba(255, 255, 255, 0.05);
+                    color: #fff;
+                    border-left-color: var(--primary-color);
+                }
+
+                .sidebar-menu li a i {
+                    width: 25px;
+                    margin-right: 10px;
+                    font-size: 1.1rem;
+                }
+
+        /* İÇERİK ALANI */
+        .main-content {
+            margin-left: var(--sidebar-width);
+            padding: 20px;
+            min-height: 100vh;
+            transition: all 0.3s;
+        }
+
+        /* TOPBAR (ÜST MENÜ) */
+        .topbar {
+            background: #fff;
+            padding: 15px 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="sidebar">
+        <div class="sidebar-header">
+            <a href="#" class="sidebar-brand">
+                <i class="fa-solid fa-heart-pulse me-2"></i>Medinova
+            </a>
+        </div>
+        <ul class="sidebar-menu">
+            <li><a href="/AdminAbout/Index"><i class="fa fa-info-circle"></i> Hakkımızda</a></li>
+            <li><a href="/AdminDoctor/Index"><i class="fa fa-user-md"></i> Doktorlar</a></li>
+            <li><a href="/AdminService/Index"><i class="fa fa-stethoscope"></i> Hizmetler</a></li>
+            <li><a href="/AdminDepartment/Index"><i class="fa fa-hospital"></i> Bölümler</a></li>
+            <li><a href="/AdminTestimonial/Index"><i class="fa fa-comment-dots"></i> Yorumlar</a></li>
+            <li><a href="/Default/Index" target="_blank"><i class="fa fa-globe"></i> Siteye Git</a></li>
+            <li class="mt-5"><a href="/Account/LogOut" class="text-danger"><i class="fa fa-power-off"></i> Çıkış Yap</a></li>
+        </ul>
+    </nav>
+
+    <div class="main-content">
+
+        <div class="topbar">
+            <h4 class="m-0 text-secondary fw-bold">Yönetim Paneli</h4>
+            <div class="user-info">
+                <div class="text-end me-2">
+                    <span class="d-block fw-bold text-dark">Admin</span>
+                    <small class="text-muted">Sistem Yöneticisi</small>
+                </div>
+                <div class="user-avatar">A</div>
+            </div>
+        </div>
+
+        @RenderBody()
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

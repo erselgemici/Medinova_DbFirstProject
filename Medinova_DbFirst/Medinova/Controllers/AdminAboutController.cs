@@ -1,14 +1,15 @@
+using System.Linq;
 using System.Web.Mvc;
+using Medinova.Models;
 
-namespace Medinova.Controllers
+public class AdminAboutController : Controller
 {
-    [Authorize]
-    public class AdminAboutController : Controller
+    MedinovaContext db = new MedinovaContext(); 
+
+    // GET: AdminAbout
+    public ActionResult Index()
     {
-        // GET: AdminAbout
-        public ActionResult Index()
-        {
-            return View();
-        }
+        var values = db.Abouts.ToList();
+        return View(values);
     }
 }

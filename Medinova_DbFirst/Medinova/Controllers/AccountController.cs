@@ -30,7 +30,7 @@ namespace Medinova.Controllers
             Session["userName"] = user.UserName;
             Session["fullName"] = user.FirstName + " " + user.LastName;
 
-            return RedirectToAction("Index","AdminAbout");
+            return RedirectToAction("Index","AdminDoctor");
         }
 
         public ActionResult Logout()
